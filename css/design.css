@@ -1,0 +1,106 @@
+body {
+  background-color: #333;
+  background-image: -moz-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
+  background-image: -ms-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
+  background-image: -o-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
+  background-image: -webkit-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
+  background-image: radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
+  color: #fff;
+}
+
+a {
+  color: #bf311a;
+  text-decoration: none;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, 'Lucida Console', 'Courier New', monospace, sans-serif;
+  font-size: 75%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+legend,
+caption {
+  font-family: Futura, sans-serif;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3 {
+  text-shadow: #000 0 0 2px, rgba(0, 0, 0, 0.4) 0 0 30px;
+}
+
+.slide {
+  background-color: #eee;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: #333;
+  display: block;
+  height: 700px;
+  padding: 32px;
+  width: 900px;
+}
+
+.reverse,
+.reverse cite {
+  color: #eee;
+}
+.reverse.slide {
+  background-color: #333;
+}
+
+.slide h1,
+.slide h2,
+.slide h3 {
+  text-shadow: none;
+}
+
+.picture {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+cite {
+  bottom: 16px;
+  color: #000;
+  font-size: 50%;
+  font-style: normal;
+  position: absolute;
+  text-shadow: #fff 0 0 1px;
+}
+.reverse cite {
+  text-shadow: #000 0 0 1px;
+}
+
+.headline {
+  text-align: center;
+}
+
+.headline-right {
+  text-align: right;
+}
+
+ul.important {
+  font-size: 150%;
+}
+
+/** Slides ********************************************************************/
