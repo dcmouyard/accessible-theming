@@ -6,6 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Accessible Theming in Drupal</title>
   <meta name="author" content="Dan Mouyard" />
+  <link href="http://fonts.googleapis.com/css?family=Oswald:700,400,300" rel="stylesheet">
   <link href="css/base.css" rel="stylesheet" />
   <link href="css/design.css" rel="stylesheet" />
   <link rel="shortcut icon" href="img/favicon.ico" />
@@ -18,9 +19,483 @@
 
 <div id="impress">
 
-  <article id="title" class="step" data-x="0" data-y="0" data-scale="3">
-    <h1 class="main-title">Accessible Theming in Drupal</h1>
+  <article id="title" class="step" data-x="-1000" data-y="-500 " data-scale="3">
+    <h1 class="main-title">Accessible Theming<br />in Drupal</h1>
   </article>
+
+  <article id="dcmouyard" class="step" data-x="-175" data-y="680" data-scale="3">
+    <h2>Dan Mouyard</h2>
+    <h3>Senior Interface Engineer</h3>
+    <div class="dan"><img src="img/avatar-150.png" alt=""></div>
+    <p><small><a href="mailto:dmouyard@forumone.com">dmouyard@forumone.com</a><br><a href="http://twitter.com/dcmouyard">@dcmouyard</a></small></p>
+  </article>
+
+  <article id="focus" class="step" data-x="-525" data-y="2000">
+    <h1 class="headline">Focus</h1>
+  </article>
+
+  <article id="quote" class="step" data-x="800" data-y="2000">
+    <blockquote>
+      The power of the Web is its universality. Access by <span class="highlight">everyone</span> regardless of disability is an essential aspect.&rdquo;
+      <cite>&mdash; Tim Berners-Lee <small>Inventor of the World Wide Web</small></cite>
+    </blockquote>
+  </article>
+
+  <article id="progressive-enhancement" class="step" data-x="2000" data-y="2000">
+    <h2 class="headline">Progressive Enhancement</h2>
+  </article>
+
+  <article id="overview-drupal" class="step" data-x="2000" data-y="200" data-scale="2">
+    <h2>Drupal Core</h2>
+  </article>
+
+  <article id="overview-html" class="step" data-x="2000" data-y="400" data-scale="2">
+    <h2>HTML</h2>
+  </article>
+
+  <article id="overview-css" class="step" data-x="2000" data-y="600" data-scale="2">
+    <h2>CSS</h2>
+  </article>
+
+  <article id="overview-aria" class="step" data-x="2000" data-y="800" data-scale="2">
+    <h2>WAI-ARIA</h2>
+  </article>
+
+  <article id="drupal-core" class="step" data-x="4000" data-y="1000" data-rotate="-90">
+    <h1 class="headline">Drupal Core</h1>
+  </article>
+
+  <article id="helper-classes" class="step" data-x="4800" data-y="1000" data-rotate="-90">
+    <h2>Helper Classes</h2>
+    <ul>
+      <li>element-hidden</li>
+      <li>element-invisible</li>
+      <li>element-focusable</li>
+    </ul>
+  </article>
+
+  <article id="hidden" class="step" data-x="5050" data-y="1000" data-rotate="-90">
+    <pre>.element-hidden {
+  display: none;
+}</pre>
+  </article>
+
+  <article id="invisible" class="step" data-x="5266" data-y="1000" data-rotate="-90">
+    <pre>.element-invisible {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}</pre>
+  </article>
+
+  <article id="focusable" class="step" data-x="5536" data-y="1000" data-rotate="-90">
+    <pre>.element-invisible.element-focusable:active,
+.element-invisible.element-focusable:focus {
+  clip: auto;
+  position: static !important;
+}</pre>
+  </article>
+
+  <article id="skiplink" class="step" data-x="6500" data-y="1000" data-rotate="-90">
+    <h2>Skip Links</h2>
+    <p>The first links on every page which allow users to skip directly to other sections of the same page, most often to the main content.</p>
+  </article>
+
+  <article id="skiplink-bartik" class="step" data-x="6500" data-y="1000" data-rotate="-90">
+  </article>
+
+  <article id="skiplink-seven" class="step" data-x="7500" data-y="1000" data-rotate="-90">
+  </article>
+
+  <article id="skiplink-html" class="step" data-x="7500" data-y="1000" data-rotate="-90">
+    <h3>html.tpl.php</h3>
+    <pre>&lt;div id="skip-link"&gt;
+  &lt;a href="<span class="highlight">#main-content</span>"
+     class="element-invisible element-focusable"&gt;
+    &lt;?php print t('Skip to main content'); ?&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</pre>
+  </article>
+
+  <article id="skiplink-page1" class="step" data-x="8100" data-y="1000" data-rotate="-90">
+    <h3>page.tpl.php</h3>
+    <pre>&lt;a id="<span class="highlight">main-content</span>"&gt;&lt;/a&gt;</pre>
+    <pre>&nbsp;</pre>
+  </article>
+
+  <article id="skiplink-page2" class="step" data-x="8100" data-y="1000" data-rotate="-90">
+    <h3>page.tpl.php</h3>
+    <pre>&nbsp;</pre>
+    <pre>&lt;div id="<span class="highlight">main-content</span>"&gt;</pre>
+  </article>
+
+  <article id="form-labels" class="step" data-x="8100" data-y="2300" data-rotate="-90">
+    <h2>Forms</h2>
+    <p>All form elements need to have either a label or a title attribute. Drupal's Form API uses the <code>#title</code> property to set these.</p>
+  </article>
+
+  <article id="form-api" class="step" data-x="8400" data-y="2300" data-rotate="-90">
+    <pre>$form['element'] = array(
+  '#type' = 'textfield',
+  '#title' => t('Description'),
+);</pre>
+  </article>
+
+  <article id="title-display" class="step" data-x="8800" data-y="2300" data-rotate="-90">
+    <h3>Form API: Title Display Property</h3>
+    <ul>
+      <li>before</li>
+      <li>after</li>
+      <li>invisible</li>
+      <li>attribute</li>
+    </ul>
+  </article>
+
+  <article id="form-api-display" class="step" data-x="9200" data-y="2300" data-rotate="-90">
+    <pre>$form['element'] = array(
+  '#type' = 'textfield',
+  '#title' => t('Description'),
+  '#title_display' => 'invisible',
+);</pre>
+  </article>
+
+  <article id="html" class="step" data-x="9200" data-y="1000" data-rotate="-180">
+    <h1 class="headline">HTML</h1>
+  </article>
+
+  <article id="semantic-html" class="step" data-x="9200" data-y="650" data-rotate="-180">
+    <small><pre>&lt;article&gt;
+  &lt;h1&gt;Article Title&lt;/h1&gt;
+  &lt;footer&gt;
+    &lt;time datetime="2012-07-28"&gt;July 28, 2012&lt;/time&gt; by Author
+  &lt;/footer&gt;
+  &lt;figure&gt;
+    &lt;img&gt;
+    &lt;figcaption&gt;Image caption&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;p&gt;
+    A paragraph of text with &lt;strong&gt;important&lt;/strong&gt; and
+    &lt;em&gt;emphasized&lt;/em&gt; words using semantic
+    &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;
+    elements.
+  &lt;/p&gt;
+&lt;/article&gt;</pre></small>
+  </article>
+
+  <article id="unsemantic-html" class="step" data-x="9200" data-y="650" data-rotate="-180">
+    <small><pre>&lt;div class="article"&gt;
+  &lt;div class="title"&gt;Article Title&lt;/div&gt;
+  &lt;div class="byline"&gt;
+    July 28, 2012 by Author
+  &lt;/div&gt;
+  &lt;div class="figure"&gt;
+    &lt;img&gt;
+    &lt;div class="caption"&gt;Image caption&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="p"&gt;
+    A paragraph of text with
+    &lt;span class="bold"&gt;important&lt;/span&gt; and
+    &lt;span class="italic"&gt;emphasized&lt;/span&gt; words using
+    non-semantic HTML elements.
+  &lt;/div&gt;
+&lt;/div&gt;</pre></small>
+  </article>
+
+  <article id="fences" class="step headline" data-x="9200" data-y="0" data-rotate="-180">
+    <h2>Fences Module</h2>
+    <p><a href="http://drupal.org/project/fences">drupal.org/project/fences</a></p>
+  </article>
+
+  <article id="manage-fields" class="step headline" data-x="8500" data-y="0" data-rotate="-180">
+    <h3>Manage Fields</h3>
+    <img src="img/manage-fields.jpg" alt="Manage fields">
+  </article>
+
+  <article id="wrapper-markup" class="step headline" data-x="7600" data-y="0" data-rotate="-180">
+    <h3>Define Field Wrapper Markup</h3>
+    <img src="img/wrapper-markup.jpg" alt="Select wrapper markup">
+  </article>
+
+  <article id="document-order" class="step headline" data-x="9000" data-y="-1000" data-rotate="-180">
+    <h2>Document Order<br><small>is the</small><br>Tab Order</h2>
+  </article>
+
+  <article id="page-template" class="step" data-x="9000" data-y="-1600" data-rotate="-180">
+    <h3 class="headline">page.tpl.php</h3>
+    <ol class="details">
+      <li>Header <code>&nbsp;</code>
+        <ol>
+          <li>Logo</li>
+          <li>Site Name and Slogan</li>
+        </ol>
+      </li>
+      <li>Navigation <code>&nbsp;</code>
+        <ol>
+          <li>Main Menu</li>
+          <li>Secondary Menu</li>
+        </ol>
+      </li>
+      <li>Breadcrumbs</li>
+      <li>Main
+        <ol>
+          <li>Content <code>&nbsp;</code></li>
+          <li>First Sidebar <code>&nbsp;</code></li>
+          <li>Second Sidebar <code>&nbsp;</code></li>
+        </ol>
+      </li>
+      <li>Footer <code>&nbsp;</code></li>
+    </ol>
+  </article>
+
+  <article id="html5" class="step" data-x="9000" data-y="-1600" data-rotate="-180">
+    <h3 class="headline">page.tpl.php</h3>
+    <ol class="details">
+      <li>Header <code>&lt;header&gt;</code>
+        <ol>
+          <li>Logo</li>
+          <li>Site Name and Slogan</li>
+        </ol>
+      </li>
+      <li>Navigation <code>&lt;nav&gt;</code>
+        <ol>
+          <li>Main Menu</li>
+          <li>Secondary Menu</li>
+        </ol>
+      </li>
+      <li>Breadcrumbs</li>
+      <li>Main
+        <ol>
+          <li>Content <code>&lt;section&gt;</code></li>
+          <li>First Sidebar <code>&lt;section&gt;</code></li>
+          <li>Second Sidebar <code>&lt;section&gt;</code></li>
+        </ol>
+      </li>
+      <li>Footer <code>&lt;footer&gt;</code></li>
+    </ol>
+  </article>
+
+  <article id="images" class="step headline" data-x="7500" data-y="-1600" data-rotate="-180">
+    <h2>Images</h2>
+  </article>
+
+  <article id="images-with-text" class="step headline" data-x="7500" data-y="-1720" data-rotate="-180">
+    <h3>Alternative Text</h3>
+    <pre>&lt;img alt="Visit the Capitol" src="capitol.jpg" /&gt;</pre>
+  </article>
+
+  <article id="alt-attribute" class="step" data-x="6000" data-y="-1720" data-rotate="-180">
+    <h3>Alt Attribute</h3>
+    <ul>
+      <li>All <code>&lt;img&gt;</code> elements need an alt attribute</li>
+      <li>Decorative Image = Empty <div class="small"><code>&lt;img alt="" /&gt;</code></div></li>
+      <li>Content Image = Describe Image</li>
+      <li>Link Image = Describe Destination</li>
+    </ul>
+  </article>
+
+  <article id="viewport" class="step headline" data-x="6000" data-y="-2500" data-rotate="-180">
+    <h2>Viewport</h2>
+  </article>
+
+  <article id="viewport-dont" class="step" data-x="6000" data-y="-2750" data-rotate="-180">
+    <h3>Prevents Zooming</h3>
+    <pre>&lt;meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"&gt;</pre>
+    <h3>Prevents Scrolling</h3>
+    <pre>&lt;meta name="viewport" content="initial-scale=1.0, user-scrollable=no"&gt;</pre>
+  </article>
+
+  <article id="correct-viewport" class="step" data-x="6000" data-y="-2750" data-rotate="-180">
+    <h3>Recommended Viewport Meta Tag</h3>
+    <pre>&lt;meta name="viewport" content="width=device-width"&gt;</pre>
+  </article>
+
+  <article id="css" class="step headline" data-x="1000" data-y="-4000" data-rotate="-90">
+    <h1>CSS</h1>
+  </article>
+
+  <article id="image-replacement" class="step" data-x="1400" data-y="-4000" data-rotate="-90">
+    <h2>Image Replacement</h2>
+    <pre>&lt;h2 class="capitol"&gt;Visit the Capitol&lt;h2&gt;</pre>
+    <pre>.capitol {
+  background: url(capitol.jpg) no-repeat;
+  color: transparent;
+  font: 0/0 a;
+  height: 68px;
+  text-shadow: none;
+  width: 102px;
+}</pre>
+  </article>
+
+  <article id="styling-links" class="step" data-x="2200" data-y="-4000" data-rotate="-90">
+    <h2>Styling Links</h2>
+    <ul>
+      <li>Make them <span class="highlight">obvious</span></li>
+      <li>Design <span class="highlight">all</span> states <small>(hover, focus, active, visited)</small></li>
+      <li>Make them <span class="highlight">easy</span> to click</li>
+    </ul>
+  </article>
+
+  <article id="hover-focus" class="step" data-x="2200" data-y="-4900" data-rotate="-90">
+    <h3>Combine :hover and :focus</h3>
+    <pre>a:hover,
+a:focus {
+  color: #bada55;
+}</pre>
+  </article>
+
+  <article id="link-outline" class="step" data-x="2200" data-y="-5400" data-rotate="-90">
+    <h3>Link Outline</h3>
+    <pre>a {
+  outline: 0;
+}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</pre>
+  </article>
+
+  <article id="link-outline-do" class="step" data-x="2200" data-y="-5400" data-rotate="-90">
+    <h3>Link Outline</h3>
+    <pre>a:hover,
+a:active {
+  outline: 0;
+}
+a:focus {
+  outline: thin dotted;
+}</pre>
+  </article>
+
+  <article id="bigger-links" class="step" data-x="2200" data-y="-6200" data-rotate="-90">
+    <h3>Bigger Links</h3>
+    <pre>a {
+  margin: -2px;
+  padding: 2px;
+}</pre>
+  </article>
+
+  <article id="typography" class="step headline" data-x="3000" data-y="-6200" data-rotate="-90">
+    <h2>Typography</h2>
+  </article>
+
+  <article id="typography-quote" class="step" data-x="3250" data-y="-6200" data-rotate="-90">
+    <blockquote>
+      A printed work which cannot be read becomes a product <span class="highlight">without</span> purpose.&rdquo;
+      <cite>&mdash; Emil Ruder <div class="small">Typography, A Manual of Design</div></cite>
+    </blockquote>
+  </article>
+
+  <article id="fonts" class="step" data-x="3250" data-y="-5200" data-rotate="-90">
+    <h3>Choose the right fonts</h3>
+  </article>
+
+  <article id="measure" class="step" data-x="3350" data-y="-5200" data-rotate="-90">
+    <h3>Pay attention to the measure</h3>
+  </article>
+
+  <article id="leading" class="step" data-x="3450" data-y="-5200" data-rotate="-90">
+    <h3>Use appropriate leading</h3>
+  </article>
+
+  <article id="hierarchy" class="step" data-x="3550" data-y="-5200" data-rotate="-90">
+    <h3>Create a nice hierarchy</h3>
+  </article>
+
+  <article id="font-size" class="step" data-x="4300" data-y="-5200" data-rotate="-90">
+    <h3>Font Size</h3>
+    <ul>
+      <li>Use the <span class="highlight">default</span> font size for body copy</li>
+      <li>16px on a monitor <span class="highlight">equals</span> 12pt in a book</li>
+      <li>Small text <span class="highlight">causes</span> eye strain</li>
+      <li><span class="highlight">Read</span> the text while designing</li>
+    </ul>
+  </article>
+
+  <article id="alignment" class="step" data-x="5200" data-y="-5200" data-rotate="-90">
+    <h3>Text Alignment</h3>
+    <ul>
+      <li><span class="highlight">Left-align</span> body text</li>
+      <li>Fully justified text creates <span class="highlight">rivers</span></li>
+      <li>Easier to <span class="highlight">scan</span> text</li>
+    </ul>
+  </article>
+
+  <article id="contrast" class="step" data-x="6100" data-y="-5200" data-rotate="-90">
+    <h3>Color Contrast</h3>
+    <ul>
+      <li>Increases Readability <div class="small"><a href="http://contrastrebellion.com/">contrastrebellion.com</a></div></li>
+      <li>Smaller text needs <span class="highlight">higher</span> contrast</li>
+      <li>Too much contrast affects <span class="highlight">dyslexic</span> users</li>
+    </ul>
+  </article>
+
+  <article id="color-tools" class="step" data-x="7000" data-y="-5200" data-rotate="-90">
+    <h3>Color Tools</h3>
+    <ul>
+      <li>Color Contrast <div class="small"><a href="http://leaverou.github.com/contrast-ratio/">leaverou.github.com/contrast-ratio</a></div></li>
+      <li>Online Color Filters <div class="small"><a href="http://graybit.com/">graybit.com</a> &nbsp;&nbsp;&nbsp; <a href="http://colorfilter.wickline.org/">colorfilter.wickline.org</a></div></li>
+      <li>Colorblindness Simulator <div class="small"><a href="http://colororacle.org/">colororacle.org</a></div></li>
+    </ul>
+  </article>
+
+  <article id="layouts" class="step" data-x="7000" data-y="-6200" data-rotate="-90">
+    <h2>Responsive Layouts</h2>
+    <ul>
+      <li>Use <span class="highlight">media queries</span> to adjust layout</li>
+      <li>Set breakpoints based on <span class="highlight">content</span>, not devices</li>
+      <li><span class="highlight">Accessible</span> content when zoomed in*</li>
+    </ul>
+    <small>*Not yet in webkit&hellip;</small>
+  </article>
+
+  <article id="media-query" class="step" data-x="7000" data-y="-7400" data-rotate="-90">
+    <h3>Media Query</h3>
+    <pre>body {
+  margin: 0 auto;
+  max-width: 35em;
+  padding: 0 1em;
+}
+
+@media screen and (min-width: 35em) {
+  body {
+    max-width: 60em;
+  }
+}</pre>
+  </article>
+
+  <article id="wai-aria" class="step headline" data-x="9000" data-y="-7400">
+    <h1>WAI-ARIA</h1>
+  </article>
+
+  <article id="aria" class="step headline" data-x="9000" data-y="-7200">
+    <h2>Web Accessibility Initiative<br>Accessible Rich Internet Application</h2>
+  </article>
+
+  <article id="aria-definition" class="step" data-x="9000" data-y="-6000">
+    <p>Defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies.</p>
+  </article>
+
+  <article id="aria-page" class="step" data-x="9000" data-y="-5000">
+    <h3>page.tpl.php</h3>
+    <pre>&lt;div id="header"&gt;</pre>
+    <pre>&lt;div id="navigation"&gt;</pre>
+    <pre>&lt;div id="main-content"&gt;</pre>
+    <pre>&lt;div id="footer"&gt;</pre>
+  </article>
+
+  <article id="aria-landmarks" class="step" data-x="9000" data-y="-5000">
+    <h3>page.tpl.php</h3>
+    <pre>&lt;header role="banner""&gt;</pre>
+    <pre>&lt;nav role="navigation"&gt;</pre>
+    <pre>&lt;section id="main-content" role="main"&gt;</pre>
+    <pre>&lt;footer role="contentinfo"&gt;</pre>
+  </article>
+
+  <article id="questions" class="step" data-x="0" data-y="0">
+    <h2>Questions?</h2>
+  </article>
+
+
+  <div id="final" class="step" data-x="0" data-y="0" data-scale="4">
+  </div>
 
   <script src="impress.min.js"></script>
   <script>impress().init();</script>

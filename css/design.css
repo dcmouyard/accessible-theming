@@ -1,15 +1,12 @@
 body {
-  background-color: #333;
-  background-image: -moz-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
-  background-image: -ms-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
-  background-image: -o-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
-  background-image: -webkit-radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
-  background-image: radial-gradient(50% 33%, ellipse cover, rgba(0,0,0,0), rgba(0,0,0,.5) 100%);
+  background: #000 url(../img/f1bg.png) no-repeat 100% 100%;
   color: #fff;
+  font-weight: 300;
+  text-shadow: #000 2px 2px;
 }
 
 a {
-  color: #bf311a;
+  color: #c00;
   text-decoration: none;
 }
 
@@ -18,7 +15,7 @@ button,
 input,
 select,
 textarea {
-  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Oswald, Calibri, 'Gill Sans', 'Gill Sans MT', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 code,
@@ -26,7 +23,11 @@ kbd,
 pre,
 samp {
   font-family: Consolas, 'Lucida Console', 'Courier New', monospace, sans-serif;
-  font-size: 75%;
+  font-size: 90%;
+}
+
+pre {
+  font-size: 65%;
 }
 
 h1,
@@ -38,14 +39,8 @@ h6,
 th,
 legend,
 caption {
-  font-family: Futura, sans-serif;
-  font-weight: normal;
-}
-
-h1,
-h2,
-h3 {
-  text-shadow: #000 0 0 2px, rgba(0, 0, 0, 0.4) 0 0 30px;
+  font-family: Oswald, AlternateGothicNo1D, LeagueGothicRegular, Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 .slide {
@@ -62,16 +57,11 @@ h3 {
 
 .reverse,
 .reverse cite {
-  color: #eee;
-}
-.reverse.slide {
-  background-color: #333;
+  color: #000;
 }
 
-.slide h1,
-.slide h2,
-.slide h3 {
-  text-shadow: none;
+.reverse a {
+  color: #800;
 }
 
 .picture {
@@ -79,16 +69,18 @@ h3 {
   background-size: cover;
 }
 
-cite {
-  bottom: 16px;
-  color: #000;
-  font-size: 50%;
-  font-style: normal;
-  position: absolute;
-  text-shadow: #fff 0 0 1px;
+h1,
+h2 {
+  line-height: 1.25;
+  text-transform: uppercase;
 }
-.reverse cite {
-  text-shadow: #000 0 0 1px;
+
+h2 > small {
+  line-height: 2.5;
+}
+
+.main-title {
+  text-align: center;
 }
 
 .headline {
@@ -99,8 +91,142 @@ cite {
   text-align: right;
 }
 
+.highlight {
+  color: #c00;
+}
+
 ul.important {
   font-size: 150%;
 }
 
+blockquote {
+  font-weight: 400;
+  position: relative;
+}
+
+blockquote:before {
+  color: #a00;
+  content: "\201C";
+  display: inline-block;
+  font-size: 300%;
+  line-height: 1;
+  position: absolute;
+    left: 0;
+    top: -22px;
+}
+
+blockquote > cite {
+  display: block;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: .5em;
+  text-align: right;
+}
+
+cite > small {
+  display: block;
+}
+
+small > pre {
+  font-size: 90%;
+  line-height: 1.2;
+}
+
+pre + pre {
+  margin-top: 1.5em;
+}
+
+.details {
+  font-size: 75%;
+  line-height: 1.3;
+}
+
+.details code {
+  font-size: 75%;
+  line-height: 1;
+}
+
 /** Slides ********************************************************************/
+.impress-on-final .step {
+  opacity: 1;
+}
+
+.impress-on-title .step,
+.impress-on-dcmouyard .step,
+.impress-on-focus .step,
+.impress-on-helper-classes .step,
+.impress-on-hidden .step,
+.impress-on-invisible .step,
+.impress-on-focusable .step,
+.impress-on-skiplink-bartik .step,
+.impress-on-skiplink-seven .step,
+.impress-on-form-labels .step,
+.impress-on-form-api .step,
+.impress-on-title-display .step,
+.impress-on-form-api-display .step,
+.impress-on-html .step,
+.impress-on-semantic-html .step,
+.impress-on-unsemantic-html .step,
+.impress-on-fences .step,
+.impress-on-manage-fields .step,
+.impress-on-wrapper-markup .step,
+.impress-on-document-order .step,
+.impress-on-page-template .step,
+.impress-on-html5 .step,
+.impress-on-images .step,
+.impress-on-viewport .step,
+.impress-on-viewport-dont #correct-viewport,
+.impress-on-correct-viewport #viewport-dont,
+.impress-on-css .step,
+.impress-on-styling-links .step,
+.impress-on-hover-focus .step,
+.impress-on-link-outline .step,
+.impress-on-link-outline-do .step,
+.impress-on-typography .step,
+.impress-on-wai-aria .step,
+.impress-on-aria-page .step,
+.impress-on-aria-landmarks .step,
+.impress-on-questions .step,
+.impress-on-final #questions {
+  opacity: 0;
+}
+
+#dcmouyard h3 {
+  font-weight: 300;
+}
+#dcmouyard .dan {
+  background: #ccc;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  float: left;
+  margin: .15em .5em 0 0;
+}
+#dcmouyard img {
+  display: block;
+}
+
+.impress-on-skiplink-bartik {
+  background: #000 url(../img/skiplink-bartik.jpg) no-repeat 50% 50%;
+}
+
+.impress-on-skiplink-seven {
+  background: #000 url(../img/skiplink-seven.jpg) no-repeat 50% 50%;
+}
+
+#skiplink-page1 pre,
+#skiplink-page2 pre {
+  margin-top: .5em;
+}
+
+#fences a {
+  font-weight: 400;
+}
+
+#viewport-dont h3 {
+  margin-top: 1em;
+}
+
+#aria-page h3,
+#aria-landmarks h3 {
+  padding-bottom: 1em;
+}

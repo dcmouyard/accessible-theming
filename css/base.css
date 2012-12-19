@@ -13,7 +13,8 @@ video {
 
 html {
   font-size: 100%;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -183,7 +184,7 @@ object {
 /** Generic Screen Typography *************************************************/
 @media screen {
   body {
-    font-size: 200%;
+    font-size: 300%;
     line-height: 1.5;
   }
 
@@ -409,9 +410,8 @@ input[type="submit"]:hover {
 
 .step {
   margin: 20px auto;
-  padding: 40px;
   position: relative;
-  width: 900px;
+  width: 1024px;
 }
 .impress-enabled .step {
   margin: 0;
@@ -430,17 +430,5 @@ input[type="submit"]:hover {
   pointer-events: none;
 }
 .impress-enabled #impress {
-  pointer-events: auto
+  pointer-events: auto;
 }
-
-/* From Corey
-If you didn't have things intersecting and showing off-screen, it probably
-doesn't matter -- but this is what I had to add to get active slides to always
-show on top and not exhibit odd behavior when you're positioning things
-stacked:
-  .impress-enabled .step.active {
-    z-index: 9999;
-  }
-
-http://evilontwolegs.com/test/index-visual-poetry.html#/overview
-*/
