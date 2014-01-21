@@ -6,7 +6,7 @@ body {
 }
 
 a {
-  color: #c00;
+  color: rgb(248,102,70);
   text-decoration: none;
 }
 
@@ -92,7 +92,7 @@ h2 > small {
 }
 
 .highlight {
-  color: #c00;
+  color: rgb(248,102,70);
 }
 
 ul.important {
